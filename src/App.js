@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useNow from "./hooks/useNow";
 import Explorer from "./components/Explorer";
 import { ReactComponent as UpIcon } from "./assets/up.svg";
 import { ReactComponent as SoundIcon } from "./assets/sound.svg";
@@ -102,6 +103,7 @@ function WindowsDialog({ isOpen, toggle }) {
 function App() {
   const [iswindowsDialogOpen, setIsWindowsDialogOpen] = useState(false);
   const toggleWindowsDialog = () => setIsWindowsDialogOpen((old) => !old);
+  const { time, date } = useNow();
 
   return (
     <div className="overflow-hidden h-screen">
@@ -152,8 +154,8 @@ function App() {
               <SoundIcon style={{ width: "14px", height: "auto" }} />
               <span className="text-xs font-medium">ENG</span>
               <div className="flex flex-col items-center text-xs">
-                <span>05:13</span>
-                <span>26-06-2021</span>
+                <span>{time}</span>
+                <span>{date}</span>
               </div>
               <NotificationIcon style={{ width: "14px", height: "auto" }} />
             </div>

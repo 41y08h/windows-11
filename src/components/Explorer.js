@@ -76,9 +76,11 @@ export default function Explorer() {
           <ExplorerPaneItem iconName="DocumentSet" text="Documents" />
         </div>
         <div className="w-10/12">
-          {["node_modules", "controllers", "middlewares"].map((folder) => (
-            <Folder name={folder} />
-          ))}
+          {["controllers", "node_modules", "middlewares", "routes"].map(
+            (folder) => (
+              <Folder name={folder} />
+            )
+          )}
           {["global.d.ts", "index.ts"].map((file) => (
             <TSFile name={file} />
           ))}
