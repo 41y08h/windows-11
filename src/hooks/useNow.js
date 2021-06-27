@@ -34,7 +34,7 @@ export default function useNow() {
   const value = {
     time: `${zerofy(new Date().getHours())}:${zerofy(new Date().getMinutes())}`,
     date: `${zerofy(new Date().getDate())}-${zerofy(
-      new Date().getMonth()
+      new Date().getMonth() + 1
     )}-${zerofy(new Date().getFullYear())}`,
   };
 
