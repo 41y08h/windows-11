@@ -2,6 +2,8 @@
 
 Feel Windows 11 in your browser instantly. You can use the web app at [windowsxi.netlify.app](https://windowsxi.netlify.app)
 
+<img src="https://github.com/41y08h/windows-11/blob/master/animation.gif?raw=true" alt="demo" />
+
 ## Install locally
 
 After cloning it. You can install it locally by running the following command at the root directory.
