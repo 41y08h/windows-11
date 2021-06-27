@@ -21,6 +21,7 @@ import CalculatorIcon from "./assets/calculator.png";
 import ClockIcon from "./assets/clock.png";
 import NotepadIcon from "./assets/notepad.png";
 import FilesIcon from "./assets/films.png";
+import { useState } from "react";
 
 function WindowsApp({ Icon, isPng = false, text }) {
   return (
@@ -35,8 +36,64 @@ function WindowsApp({ Icon, isPng = false, text }) {
   );
 }
 
+function WindowsDialog({ isOpen }) {
+  const style = {
+    width: "58rem",
+    transform: "translateX(-50%) translateY(175%)",
+    transition: "transform 0.4s ease",
+    bottom: "80px",
+  };
+  const openStyle = {
+    ...style,
+    transform: "translateX(-50%) translateY(0)",
+  };
+
+  return (
+    <div
+      className="absolute left-1/2 bg-gray-100 rounded-md z-20"
+      style={isOpen ? openStyle : style}
+    >
+      <h2 className="font-medium pl-8 pt-8">Pinned</h2>
+      <div className="divide-y-2">
+        <div className="flex flex-wrap p-8">
+          <WindowsApp Icon={EdgeBrowserIcon} text="Microsoft Edge" />
+          <WindowsApp isPng Icon={MailIcon} text="Mail" />
+          <WindowsApp Icon={CalendarIcon} text="Calendar" />
+          <WindowsApp Icon={StoreIcon} text="Microsoft Store" />
+          <WindowsApp Icon={PhotosIcon} text="Photos" />
+          <WindowsApp Icon={SettingsIcon} text="Settings" />
+          <WindowsApp isPng Icon={CalculatorIcon} text="Calculator" />
+          <WindowsApp isPng Icon={ClockIcon} text="Alarms & Clock" />
+          <WindowsApp isPng Icon={NotepadIcon} text="Nodepad" />
+          <WindowsApp Icon={PaintIcon} text="Paint" />
+          <WindowsApp Icon={ExplorerIcon} text="File Explorer" />
+          <WindowsApp isPng Icon={FilesIcon} text="Films & TV" />
+        </div>
+
+        <div className="p-8 flex justify-between items-center">
+          <div className="flex space-x-4 items-center">
+            <div
+              className="p-3 bg-gray-200 rounded-full"
+              style={{ width: "fit-content" }}
+            >
+              <AccountIcon style={{ width: "26px", height: "auto" }} />
+            </div>
+            <span>Piyush</span>
+          </div>
+          <button>
+            <PowerIcon
+              style={{ width: "20px", height: "auto", fill: "#434343" }}
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function App() {
-  function openWindowsModal() {}
+  const [iswindowsDialogOpen, setIsWindowsDialogOpen] = useState(false);
+  const toggleWindowsDialog = () => setIsWindowsDialogOpen((old) => !old);
 
   return (
     <div className="overflow-hidden h-screen">
@@ -47,47 +104,11 @@ function App() {
         src="/video.webm"
         className="w-screen object-cover h-auto"
       />
-      <div
-        className="absolute top-0 left-0 bg-gray-100 rounded-md"
-        style={{ width: "58rem" }}
-      >
-        <h2 className="font-medium pl-8 pt-8">Pinned</h2>
-        <div className="divide-y-2">
-          <div className="flex flex-wrap p-8">
-            <WindowsApp Icon={EdgeBrowserIcon} text="Microsoft Edge" />
-            <WindowsApp isPng Icon={MailIcon} text="Mail" />
-            <WindowsApp Icon={CalendarIcon} text="Calendar" />
-            <WindowsApp Icon={StoreIcon} text="Microsoft Store" />
-            <WindowsApp Icon={PhotosIcon} text="Photos" />
-            <WindowsApp Icon={SettingsIcon} text="Settings" />
-            <WindowsApp isPng Icon={CalculatorIcon} text="Calculator" />
-            <WindowsApp isPng Icon={ClockIcon} text="Alarms & Clock" />
-            <WindowsApp isPng Icon={NotepadIcon} text="Nodepad" />
-            <WindowsApp Icon={PaintIcon} text="Paint" />
-            <WindowsApp Icon={ExplorerIcon} text="File Explorer" />
-            <WindowsApp isPng Icon={FilesIcon} text="Films & TV" />
-          </div>
-
-          <div className="p-8 flex justify-between items-center">
-            <div className="flex space-x-4 items-center">
-              <div
-                className="p-3 bg-gray-200 rounded-full"
-                style={{ width: "fit-content" }}
-              >
-                <AccountIcon style={{ width: "26px", height: "auto" }} />
-              </div>
-              <span>Piyush</span>
-            </div>
-            <PowerIcon
-              style={{ width: "20px", height: "auto", fill: "#434343" }}
-            />
-          </div>
-        </div>
-      </div>
-      <footer className="fixed bottom-0 left-0 w-screen z-20">
+      <WindowsDialog isOpen={iswindowsDialogOpen} />
+      <footer className="fixed bottom-0 left-0 w-screen z-50">
         <nav className="relative w-full h-14 bg-gray-200 flex items-center justify-center px-6">
           <main className="flex space-x-6 items-center">
-            <button onClick={openWindowsModal}>
+            <button onClick={toggleWindowsDialog}>
               <WindowsIcon />
             </button>
             <button>
