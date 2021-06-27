@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="5.344" height="4.352" viewBox="0 0 5.344 4.352">
+  <g id="internet" transform="translate(-350.375 -408.328)">
+    <g id="Path_14" data-name="Path 14" transform="translate(351.061 408.328)" fill="none">
+      <path d="M0,0H4.658V3.344H0Z" stroke="none"/>
+      <path d="M 0.4000034332275391 0.3999950885772705 L 0.4000034332275391 2.943744897842407 L 4.257802963256836 2.943744897842407 L 4.257802963256836 0.3999950885772705 L 0.4000034332275391 0.3999950885772705 M 3.337860107421875e-06 -5.006790161132813e-06 L 4.657803058624268 -5.006790161132813e-06 L 4.657803058624268 3.343744993209839 L 3.337860107421875e-06 3.343744993209839 L 3.337860107421875e-06 -5.006790161132813e-06 Z" stroke="none" fill="#1f1f1f"/>
+    </g>
+    <g id="Path_13" data-name="Path 13" transform="translate(350.375 408.328)" fill="#fff">
+      <path d="M 1.471877455711365 1.799999952316284 L 0.1999974995851517 1.799999952316284 L 0.1999974995851517 0.2000000029802322 L 1.471877455711365 0.2000000029802322 L 1.471877455711365 1.799999952316284 Z" stroke="none"/>
+      <path d="M 0.3999974727630615 0.3999999761581421 L 0.3999974727630615 1.600000023841858 L 1.271877527236938 1.600000023841858 L 1.271877527236938 0.3999999761581421 L 0.3999974727630615 0.3999999761581421 M -2.503395080566406e-06 0 L 1.671877503395081 0 L 1.671877503395081 2 L -2.503395080566406e-06 2 L -2.503395080566406e-06 0 Z" stroke="none" fill="#1f1f1f"/>
+    </g>
+    <line id="Line_4" data-name="Line 4" x2="1.5" transform="translate(350.5 409.2)" fill="none" stroke="#1f1f1f" stroke-width="0.4"/>
+    <line id="Line_5" data-name="Line 5" y2="0.5" transform="translate(351.211 409.178)" fill="none" stroke="#1f1f1f" stroke-width="0.4"/>
+    <line id="Line_6" data-name="Line 6" y2="2.68" transform="translate(351.25 410)" fill="none" stroke="#1f1f1f" stroke-width="0.4"/>
+    <line id="Line_7" data-name="Line 7" y2="1.3" transform="translate(353.25 411.34)" fill="none" stroke="#1f1f1f" stroke-width="0.4"/>
+    <line id="Line_8" data-name="Line 8" x1="2.4" transform="translate(352.1 412.5)" fill="none" stroke="#1f1f1f" stroke-width="0.35"/>
+  </g>
+</svg>
