@@ -22,6 +22,7 @@ import ClockIcon from "./assets/clock.png";
 import NotepadIcon from "./assets/notepad.png";
 import FilesIcon from "./assets/films.png";
 import { useState } from "react";
+import Explorer from "./components/Explorer";
 
 function WindowsApp({ Icon, isPng = false, text, ...props }) {
   return (
@@ -53,7 +54,7 @@ function WindowsDialog({ isOpen, toggle }) {
 
   return (
     <div
-      className="absolute left-1/2 bg-gray-100 rounded-md z-20"
+      className="absolute left-1/2 bg-gray-100 rounded-md z-20 shadow"
       style={isOpen ? openStyle : style}
     >
       <h2 className="font-medium pl-8 pt-8">Pinned</h2>
@@ -98,31 +99,6 @@ function WindowsDialog({ isOpen, toggle }) {
   );
 }
 
-function Folder({ name }) {
-  return (
-    <div className="flex items-center space-x-3 px-2">
-      <i
-        className="ms-Icon ms-Icon--FabricFolderFill text-yellow-400 text-xl"
-        aria-hidden="true"
-      />
-
-      <span className="text-sm">{name}</span>
-    </div>
-  );
-}
-
-function TSFile({ name }) {
-  return (
-    <div className="flex items-center space-x-3 px-2">
-      <i
-        className="ms-Icon ms-Icon--TypeScriptLanguage text-blue-700 text-xl"
-        aria-hidden="true"
-      />
-      <span className="text-sm">{name}</span>
-    </div>
-  );
-}
-
 function App() {
   const [iswindowsDialogOpen, setIsWindowsDialogOpen] = useState(false);
   const toggleWindowsDialog = () => setIsWindowsDialogOpen((old) => !old);
@@ -140,49 +116,7 @@ function App() {
         isOpen={iswindowsDialogOpen}
         toggle={toggleWindowsDialog}
       />
-      <div
-        className="absolute top-0 left-0 bg-gray-100 rounded-md pb-4"
-        style={{ width: "40rem" }}
-      >
-        <div className="flex justify-between">
-          <div className="flex items-center space-x-4 pl-4 py-2">
-            <ExplorerIcon style={{ width: "20px", height: "auto" }} />
-            <h2 className="text-sm">File Explorer</h2>
-          </div>
-          <div className="flex">
-            <button className="p-2 px-3 text-xs hover:bg-gray-50">
-              <i
-                className="ms-Icon ms-Icon--ChromeMinimize"
-                aria-hidden="true"
-              />
-            </button>
-            <button className="p-2 px-3 text-xs hover:bg-gray-50">
-              <i className="ms-Icon ms-Icon--Checkbox" aria-hidden="true" />
-            </button>
-            <button className="p-2 px-3 text-xs hover:bg-gray-50">
-              <i className="ms-Icon ms-Icon--ChromeClose" aria-hidden="true" />
-            </button>
-          </div>
-        </div>
-        <div className="border-b">
-          <button className="px-3 py-0.5 text-sm bg-blue-700 text-white">
-            File
-          </button>
-          <button className="px-3 py-0.5 text-sm">Share</button>
-          <button className="px-3 py-0.5 text-sm">View</button>
-        </div>
-        <div className="px-2 flex">
-          <div className="w-2/12">Quick access</div>
-          <div className="w-10/12">
-            {["node_modules", "controllers", "middlewares"].map((folder) => (
-              <Folder name={folder} />
-            ))}
-            {["global.d.ts", "index.ts"].map((file) => (
-              <TSFile name={file} />
-            ))}
-          </div>
-        </div>
-      </div>
+      <Explorer />
       <footer className="fixed bottom-0 left-0 w-screen z-50">
         <nav className="relative w-full h-14 bg-gray-200 flex items-center justify-center px-6">
           <main className="flex space-x-6 items-center">
