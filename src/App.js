@@ -9,6 +9,31 @@ import { ReactComponent as UpIcon } from "./assets/up.svg";
 import { ReactComponent as InternetIcon } from "./assets/internet.svg";
 import { ReactComponent as SoundIcon } from "./assets/sound.svg";
 import { ReactComponent as NotificationIcon } from "./assets/notification.svg";
+import { ReactComponent as CalendarIcon } from "./assets/calendar.svg";
+import { ReactComponent as PhotosIcon } from "./assets/photos.svg";
+import { ReactComponent as SettingsIcon } from "./assets/settings.svg";
+import { ReactComponent as PaintIcon } from "./assets/paint.svg";
+import { ReactComponent as ExplorerIcon } from "./assets/explorer.svg";
+import { ReactComponent as AccountIcon } from "./assets/account.svg";
+import { ReactComponent as PowerIcon } from "./assets/power.svg";
+import MailIcon from "./assets/mail.png";
+import CalculatorIcon from "./assets/calculator.png";
+import ClockIcon from "./assets/clock.png";
+import NotepadIcon from "./assets/notepad.png";
+import FilesIcon from "./assets/films.png";
+
+function WindowsApp({ Icon, isPng = false, text }) {
+  return (
+    <div className="flex flex-col items-center space-y-3 w-36 hover:bg-blue-100 cursor-pointer rounded p-4">
+      {isPng ? (
+        <img src={Icon} alt={text} style={{ width: "32px", height: "auto" }} />
+      ) : (
+        <Icon style={{ width: "32px", height: "auto" }} />
+      )}
+      <span className="text-sm">{text}</span>
+    </div>
+  );
+}
 
 function App() {
   function openWindowsModal() {}
@@ -22,7 +47,44 @@ function App() {
         src="/video.webm"
         className="w-screen object-cover h-auto"
       />
-      <footer className="fixed bottom-0 left-0 w-screen">
+      <div
+        className="absolute top-0 left-0 bg-gray-100 rounded-md"
+        style={{ width: "58rem" }}
+      >
+        <h2 className="font-medium pl-8 pt-8">Pinned</h2>
+        <div className="divide-y-2">
+          <div className="flex flex-wrap p-8">
+            <WindowsApp Icon={EdgeBrowserIcon} text="Microsoft Edge" />
+            <WindowsApp isPng Icon={MailIcon} text="Mail" />
+            <WindowsApp Icon={CalendarIcon} text="Calendar" />
+            <WindowsApp Icon={StoreIcon} text="Microsoft Store" />
+            <WindowsApp Icon={PhotosIcon} text="Photos" />
+            <WindowsApp Icon={SettingsIcon} text="Settings" />
+            <WindowsApp isPng Icon={CalculatorIcon} text="Calculator" />
+            <WindowsApp isPng Icon={ClockIcon} text="Alarms & Clock" />
+            <WindowsApp isPng Icon={NotepadIcon} text="Nodepad" />
+            <WindowsApp Icon={PaintIcon} text="Paint" />
+            <WindowsApp Icon={ExplorerIcon} text="File Explorer" />
+            <WindowsApp isPng Icon={FilesIcon} text="Films & TV" />
+          </div>
+
+          <div className="p-8 flex justify-between items-center">
+            <div className="flex space-x-4 items-center">
+              <div
+                className="p-3 bg-gray-200 rounded-full"
+                style={{ width: "fit-content" }}
+              >
+                <AccountIcon style={{ width: "26px", height: "auto" }} />
+              </div>
+              <span>Piyush</span>
+            </div>
+            <PowerIcon
+              style={{ width: "20px", height: "auto", fill: "#434343" }}
+            />
+          </div>
+        </div>
+      </div>
+      <footer className="fixed bottom-0 left-0 w-screen z-20">
         <nav className="relative w-full h-14 bg-gray-200 flex items-center justify-center px-6">
           <main className="flex space-x-6 items-center">
             <button onClick={openWindowsModal}>
