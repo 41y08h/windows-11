@@ -119,7 +119,7 @@ function App() {
         toggle={toggleWindowsDialog}
       />
       <Explorer />
-      <footer className="fixed bottom-0 left-0 w-screen z-50">
+      <footer className="fixed bottom-0 left-0 w-screen z-50 shadow">
         <nav className="relative w-full h-14 bg-gray-200 flex items-center justify-center px-6">
           <main className="flex space-x-6 items-center">
             <button onClick={toggleWindowsDialog}>

@@ -41,16 +41,16 @@ function ExplorerPaneItem({ iconName, text, ...props }) {
 
 export default function Explorer() {
   return (
-    <Draggable>
+    <Draggable handle=".topbar-for-drag">
       <div
-        className="absolute top-20 left-20 bg-gray-100 rounded-md pb-4"
+        className="absolute top-20 left-20 bg-gray-100 rounded-md pb-4 shadow"
         style={{
           width: "50rem",
           height: "30rem",
         }}
       >
-        <div className="flex justify-between">
-          <div className="flex items-center space-x-4 pl-4 py-2">
+        <div className="flex">
+          <div className="flex items-center space-x-4 pl-4 py-2 w-full topbar-for-drag cursor-move">
             <ExplorerIcon style={{ width: "20px", height: "auto" }} />
             <h2 className="text-sm">File Explorer</h2>
           </div>
@@ -82,6 +82,9 @@ export default function Explorer() {
             <ExplorerPaneItem iconName="TVMonitor" text="Desktop" />
             <ExplorerPaneItem iconName="Download" text="Downloads" />
             <ExplorerPaneItem iconName="DocumentSet" text="Documents" />
+            <ExplorerPaneItem iconName="PictureCenter" text="Pictures" />
+            <ExplorerPaneItem iconName="ThisPC" text="This PC" />
+            <ExplorerPaneItem iconName="FabricNetworkFolder" text="Network" />
           </div>
           <div className="w-10/12">
             {["controllers", "node_modules", "middlewares", "routes"].map(
