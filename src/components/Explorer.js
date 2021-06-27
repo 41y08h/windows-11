@@ -1,7 +1,5 @@
 import { ReactComponent as ExplorerIcon } from "../assets/explorer.svg";
 import Draggable from "react-draggable";
-import { Transition } from "@headlessui/react";
-import { Fragment } from "react";
 
 function Folder({ name }) {
   return (
