@@ -41,7 +41,7 @@ function WindowsApp({ Icon, isPng = false, text, ...props }) {
   );
 }
 
-function WindowsDialog({ isOpen, toggle }) {
+function WindowsDialog({ isOpen, toggle, openExplorer }) {
   const style = {
     width: "58rem",
     transform: "translateX(-50%) translateY(175%)",
@@ -72,7 +72,10 @@ function WindowsDialog({ isOpen, toggle }) {
           <WindowsApp isPng Icon={NotepadIcon} text="Nodepad" />
           <WindowsApp Icon={PaintIcon} text="Paint" />
           <WindowsApp
-            onClick={toggle}
+            onClick={() => {
+              toggle();
+              openExplorer();
+            }}
             Icon={ExplorerIcon}
             text="File Explorer"
           />
@@ -101,9 +104,11 @@ function WindowsDialog({ isOpen, toggle }) {
 }
 
 function App() {
-  const [iswindowsDialogOpen, setIsWindowsDialogOpen] = useState(false);
-  const toggleWindowsDialog = () => setIsWindowsDialogOpen((old) => !old);
   const { time, date } = useNow();
+  const [isWindowsDialogOpen, setIsWindowsDialogOpen] = useState(false);
+  const [isExplorerOpen, setIsExplorerOpen] = useState(false);
+  const toggleWindowsDialog = () => setIsWindowsDialogOpen((old) => !old);
+  const toggleExplorer = () => setIsExplorerOpen((old) => !old);
 
   return (
     <div className="overflow-hidden h-screen">
@@ -115,10 +120,11 @@ function App() {
         className="w-screen object-cover h-auto"
       />
       <WindowsDialog
-        isOpen={iswindowsDialogOpen}
+        isOpen={isWindowsDialogOpen}
         toggle={toggleWindowsDialog}
+        openExplorer={toggleExplorer}
       />
-      <Explorer />
+      <Explorer isOpen={isExplorerOpen} />
       <footer className="fixed bottom-0 left-0 w-screen z-50 shadow">
         <nav className="relative w-full h-14 bg-gray-200 flex items-center justify-center px-6">
           <main className="flex space-x-6 items-center">

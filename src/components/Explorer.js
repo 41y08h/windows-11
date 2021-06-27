@@ -1,5 +1,7 @@
 import { ReactComponent as ExplorerIcon } from "../assets/explorer.svg";
 import Draggable from "react-draggable";
+import { Transition } from "@headlessui/react";
+import { Fragment } from "react";
 
 function Folder({ name }) {
   return (
@@ -39,11 +41,13 @@ function ExplorerPaneItem({ iconName, text, ...props }) {
   );
 }
 
-export default function Explorer() {
+export default function Explorer({ isOpen, toggle }) {
+  if (!isOpen) return null;
+
   return (
     <Draggable handle=".topbar-for-drag">
       <div
-        className="absolute top-20 left-20 bg-gray-100 rounded-md pb-4 shadow"
+        className="absolute top-20 left-20 bg-gray-100 rounded-md pb-4 shadow animate__animated animate__fadeInUp"
         style={{
           width: "50rem",
           height: "30rem",
